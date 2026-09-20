@@ -5,7 +5,7 @@ on:
     branches:
       - lesson-5
 jobs:
- function_test:
+  function_test:
    runs-on: ubuntu-latest
    defaults:
      run:
