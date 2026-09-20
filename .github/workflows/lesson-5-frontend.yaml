@@ -6,17 +6,17 @@ on:
       - lesson-5
 jobs:
   function_test:
-   runs-on: ubuntu-latest
-   defaults:
+    runs-on: ubuntu-latest
+    defaults:
      run:
        working-directory: frontend
-   steps:
+    steps:
      - uses: actions/checkout@v7.0.1
      - run: npm install
      - name: Run functional tests
        run: npm test -- --coverage --watchAll=false
-   deploy:
-   needs: [function_test]
+  deploy:
+    needs: [function_test]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -28,10 +28,10 @@ jobs:
         run: zip -r deploy.zip build Dockerfile
       - name: '**PLACEHOLDER** Deploy to Elastic Beanstalk'
         run: echo Placeholder for Deployment
-    security-test:
-      needs: [deploy]
-      runs-on: ubuntu-latest
-      steps: 
+  security-test:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    steps: 
       - name: ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.15.0
         with:
