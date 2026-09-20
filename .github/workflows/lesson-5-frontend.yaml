@@ -5,7 +5,7 @@ on:
     branches:
       - lesson-5
 jobs:
- function_test: (commented out to save learner time)
+ function_test:
    runs-on: ubuntu-latest
    defaults:
      run:
@@ -16,7 +16,7 @@ jobs:
      - name: Run functional tests
        run: npm test -- --coverage --watchAll=false
   deploy:
-   needs: [function_test] (normally you'd not deploy until functional tests were complete)
+   needs: [function_test]
     runs-on: ubuntu-latest
     defaults:
       run:
