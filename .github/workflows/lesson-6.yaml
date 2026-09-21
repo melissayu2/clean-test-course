@@ -44,11 +44,11 @@ jobs:
         with:
           name: cypress-videos
           path: frontend/cypress/videos
-#  security_test:
-#    needs: [deploy]
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Dynamic Application Security Scan
-#        uses: zaproxy/action-baseline@v0.15.0
-#        with:
-#          target: 'http://hangryhippo.quantic.host/'
+  security_test:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dynamic Application Security Scan
+        uses: zaproxy/action-baseline@v0.15.0
+        with:
+          target: 'http://hangryhippo.quantic.host/'
